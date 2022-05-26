@@ -1,28 +1,32 @@
-import logo from './logo.svg';
+import { Web3ReactProvider } from '@web3-react/core';
+import consolev from 'consolev';
+import { format } from 'date-fns';
+import preval from 'preval.macro';
+import { BrowserRouter, Route, Routes } from 'react-router-dom';
+import Connector from './constants/Connector';
+import { PrivateLayout } from './layouts';
+import Index from './pages/index';
+import Signin from './pages/signin';
 
-function App() {
+/**
+ * 打印项目信息
+ */
+consolev(
+  `${process.env.REACT_APP_NAME}@${process.env.REACT_APP_VERSION}`,
+  process.env.REACT_APP_SHA,
+  format(preval`module.exports = Date.now();`, 'yyyy/MM/dd HH:mm:ss')
+);
+
+export default function App() {
   return (
-    <div className="text-center">
-      <header className="bg-[#282c34] min-h-screen flex flex-col items-center justify-center text-base text-white">
-        <img
-          src={logo}
-          className="h-[40vmin] pointer-events-none motion-safe:animate-[spin_20s_linear_infinite]"
-          alt="logo"
-        />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="text-[#61dafb]"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Web3ReactProvider connectors={[Connector.COINBASE, Connector.METAMASK]}>
+      <BrowserRouter>
+        <Routes>
+          <Route index element={<Index />} />
+          <Route path="/signin" element={<Signin />} />
+          <Route path="/*" element={<PrivateLayout />} />
+        </Routes>
+      </BrowserRouter>
+    </Web3ReactProvider>
   );
 }
-
-export default App;

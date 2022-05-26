@@ -1,6 +1,6 @@
 {
-  "short_name": "CRA Tailwind Template",
-  "name": "CRA Tailwind Template",
+  "short_name": "CRA Template DApp",
+  "name": "Create React App Sample",
   "icons": [
     {
       "src": "favicon.ico",
