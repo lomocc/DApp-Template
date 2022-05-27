@@ -1,6 +1,7 @@
 import React from 'react';
-import Connector from '../../../constants/Connector';
-import ConnectButton from './ConnectButton';
+import CoinbaseConnector from '../../../connectors/CoinbaseConnector';
+import MetamaskConnector from '../../../connectors/MetamaskConnector';
+import ConnectWalletButton from './ConnectWalletButton';
 
 export default function ConnectCard() {
   return (
@@ -13,8 +14,8 @@ export default function ConnectCard() {
       </p>
       <ul className="my-4 space-y-3">
         <li>
-          <ConnectButton
-            config={Connector.METAMASK}
+          <ConnectWalletButton
+            config={MetamaskConnector}
             className="w-full text-left flex items-center p-3 text-base font-bold text-gray-900 bg-gray-50 rounded-lg hover:bg-gray-100 group hover:shadow dark:bg-gray-600 dark:hover:bg-gray-500 dark:text-white"
           >
             <svg
@@ -144,11 +145,11 @@ export default function ConnectCard() {
             <span className="inline-flex items-center justify-center px-2 py-0.5 ml-3 text-xs font-medium text-gray-500 bg-gray-200 rounded dark:bg-gray-700 dark:text-gray-400">
               Popular
             </span>
-          </ConnectButton>
+          </ConnectWalletButton>
         </li>
         <li>
-          <ConnectButton
-            config={Connector.COINBASE}
+          <ConnectWalletButton
+            config={CoinbaseConnector}
             className="w-full text-left flex items-center p-3 text-base font-bold text-gray-900 bg-gray-50 rounded-lg hover:bg-gray-100 group hover:shadow dark:bg-gray-600 dark:hover:bg-gray-500 dark:text-white"
           >
             <svg
@@ -169,7 +170,7 @@ export default function ConnectCard() {
             <span className="flex-1 ml-3 whitespace-nowrap">
               Coinbase Wallet
             </span>
-          </ConnectButton>
+          </ConnectWalletButton>
         </li>
         <li>
           <a

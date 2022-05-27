@@ -2,7 +2,7 @@ import { useCallback } from 'react';
 import useSignedIn from './useSignedIn';
 
 /**
- * Check if user is signed in
+ * Check if user has permission
  */
 export default function useHasPermission() {
   const isSignedIn = useSignedIn();

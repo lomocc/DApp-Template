@@ -3,13 +3,13 @@ import consolev from 'consolev';
 import { format } from 'date-fns';
 import preval from 'preval.macro';
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
-import Connector from './constants/Connector';
+import CoinbaseConnector from './connectors/CoinbaseConnector';
+import MetamaskConnector from './connectors/MetamaskConnector';
 import { PrivateLayout } from './layouts';
-import Index from './pages/index';
 import Signin from './pages/signin';
 
 /**
- * 打印项目信息
+ * print the version of the app
  */
 consolev(
   `${process.env.REACT_APP_NAME}@${process.env.REACT_APP_VERSION}`,
@@ -19,10 +19,13 @@ consolev(
 
 export default function App() {
   return (
-    <Web3ReactProvider connectors={[Connector.COINBASE, Connector.METAMASK]}>
+    <Web3ReactProvider
+      connectors={[CoinbaseConnector, MetamaskConnector]}
+      // allow the user to change the network
+      network="any"
+    >
       <BrowserRouter>
         <Routes>
-          <Route index element={<Index />} />
           <Route path="/signin" element={<Signin />} />
           <Route path="/*" element={<PrivateLayout />} />
         </Routes>

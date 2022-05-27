@@ -44,7 +44,7 @@ export const useLocalStorage = create<StorageStore>()(
   )
 );
 
-const sessionIdKey = 'session-id';
+const sessionIdKey = 'dapp-session-id';
 
 export function useSessionId() {
   return useLocalStorage(

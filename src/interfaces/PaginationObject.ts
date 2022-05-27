@@ -1,21 +1,21 @@
 /**
- * 分页列表对象
+ * Pagination object
  */
 export interface PaginationObject<T = any> {
   /**
-   * 数据总数
+   * total number of items
    */
   total: number;
   /**
-   * 每页数据条数
+   * page size
    */
   pageSize: number;
   /**
-   * 当前页
+   * current page
    */
   pageNum: number;
   /**
-   * 当前页数据
+   * items
    */
   data: T[];
 }

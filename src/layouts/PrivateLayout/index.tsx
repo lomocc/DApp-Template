@@ -9,6 +9,7 @@ import {
   useRoutes,
 } from 'react-router-dom';
 import { PrivateRoute } from '../../components/PrivateRoute';
+import { PermissionId } from '../../constants';
 import { useSessionId } from '../../contexts/useLocalStorage';
 import useHasPermission from '../../data/useHasPermission';
 import Dashboard from '../../pages/dashboard';
@@ -19,7 +20,12 @@ const PrivateLayout = () => {
     () => [
       {
         path: 'dashboard',
-        element: <Dashboard />,
+        element: (
+          <PrivateRoute
+            permissionId={PermissionId.DASHBOARD}
+            element={<Dashboard />}
+          />
+        ),
       },
     ],
     []

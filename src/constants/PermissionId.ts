@@ -1,11 +1,5 @@
 const PermissionId = {
-  /**
-   * 列表权限
-   */
-  LIST: 'react.permission.list',
-  /**
-   * 新增权限
-   */
-  ADD: 'react.permission.add',
+  DASHBOARD: 'dapp.dashboard',
+  MONITOR: 'dapp.dashboard.monitor',
 };
 export { PermissionId };

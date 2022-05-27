@@ -10,7 +10,6 @@ export default function ConnectButton({ config, children, ...props }: Props) {
   const [connector] = config;
   const connectorRef = useLatest(connector);
   const onClick = useCallback(() => {
-    connector.deactivate();
     connectorRef.current.activate();
   }, []);
 

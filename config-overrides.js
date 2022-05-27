@@ -1,10 +1,8 @@
-const path = require('path');
 const webpack = require('webpack');
 const { override } = require('customize-cra');
 
 module.exports = override(function (config) {
-  const fallback = config.resolve.fallback || {};
-  Object.assign(fallback, {
+  config.resolve.fallback = Object.assign({}, config.resolve.fallback, {
     crypto: require.resolve('crypto-browserify'),
     stream: require.resolve('stream-browserify'),
     assert: require.resolve('assert'),
@@ -13,7 +11,6 @@ module.exports = override(function (config) {
     os: require.resolve('os-browserify'),
     url: require.resolve('url'),
   });
-  config.resolve.fallback = fallback;
   config.plugins = (config.plugins || []).concat([
     new webpack.ProvidePlugin({
       process: 'process/browser',
