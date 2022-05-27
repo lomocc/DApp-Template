@@ -1,7 +1,6 @@
 {
-  "name": "cra-template-dapp",
+  "name": "dapp-template",
   "version": "0.1.0",
-  "description": "React Typescript TailwindCSS DApp",
   "private": true,
   "dependencies": {
     "@coinbase/wallet-sdk": "^3.1.0",
@@ -77,5 +76,8 @@
     "stream-browserify": "^3.0.0",
     "stream-http": "^3.2.0",
     "url": "^0.11.0"
+  },
+  "resolutions": {
+    "ethereumjs-abi": "^0.6.8"
   }
 }
